@@ -1,11 +1,15 @@
 ---
-title: Pixelflow Canvas
+title: Getting started
 layout: home
 ---
 
 # Pixelflow Canvas (VS Code Extension)
 
 A virtual CRT for old school graphics programming in Visual Studio Code.
+
+{: .info }
+This is the documentation for the [»Pixelflow Canvas«](https://marketplace.visualstudio.com/items?itemName=gymnasiumsteglitz.pixelflow-canvas) Visual Studio Code extension. Use the [pixelflow_canvas rubygem](https://github.com/specht/pixelflow_canvas_ruby) to interact with the canvas from Ruby.
+
 
 ## Getting started
 

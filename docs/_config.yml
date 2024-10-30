@@ -6,3 +6,6 @@ url: https://github.com/specht/pixelflow_canvas_vscode
 
 aux_links:
   Github: https://github.com/specht/pixelflow_canvas_vscode
+callouts:
+  info:
+    color: yellow
