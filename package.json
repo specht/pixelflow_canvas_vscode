@@ -1,0 +1,53 @@
+{
+  "name": "pixelflow-canvas",
+  "displayName": "Pixelflow Canvas",
+  "description": "A virtual CRT for old school graphics programming",
+  "version": "0.0.14",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": "https://github.com/specht/pixelflow_canvas",
+  "icon": "images/icon.png",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "publisher": "gymnasiumsteglitz",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pixelflow_canvas.launch",
+        "title": "Show Pixelflow Canvas"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.91.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^8.57.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "js-base64": "^3.7.7"
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #canvas {
+            border: 1px solid green;
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.addEventListener('load', function() {
+            console.log("Hello from JS!");
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            canvas.width = 800;
+            canvas.height = 600;
+            canvas.style.width = '800px';
+            canvas.style.height = '600px';
+            context.fillStyle = 'red';
+            context.fillRect(10, 10, 100, 100);
+        });
+    </script>
+    </body>
+</html>
