@@ -3,7 +3,7 @@ title: Pixelflow Canvas
 layout: home
 ---
 
-# Pixelflow Canvas
+# Pixelflow Canvas (VS Code Extension)
 
 A virtual CRT for old school graphics programming in Visual Studio Code.
 
