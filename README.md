@@ -8,6 +8,7 @@ A virtual CRT for old school graphics programming in Visual Studio Code.
 - 🔍 Choose your own resolution!
 - 🎨 Use RGB colors or use a palette!
 - 🧟 `set_pixel` and `get_pixel` are back!
+- 💎 Use the [Ruby driver](https://github.com/specht/pixelflow_canvas_ruby) if you don't want to use TCP to talk to the canvas
 
 ## Documentation
 
