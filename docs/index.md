@@ -10,7 +10,7 @@ A virtual CRT for old school graphics programming in Visual Studio Code.
 ## Getting started
 
 1. Install the extension
-2. Launch the CRT with `Ctrl+Shift+P` and `Show Pixelflow Canvas`
+2. Launch the CRT with `Ctrl+Shift+P` (or `F1`) and `Show Pixelflow Canvas`
 3. Talk to the canvas via TCP – use the protocol or use the provided Ruby library
 
 By default, the canvas listens on `http://127.0.0.1:19223`. The default resolution is 320x180 pixels, full RGB color (24-bit).
