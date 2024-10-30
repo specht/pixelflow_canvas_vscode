@@ -4,5 +4,5 @@ theme: just-the-docs
 
 url: https://github.com/specht/pixelflow_canvas_vscode
 
-# aux_links:
-#   Template Repository: https://github.com/just-the-docs/just-the-docs-template
+aux_links:
+  Github: https://github.com/specht/pixelflow_canvas_vscode
