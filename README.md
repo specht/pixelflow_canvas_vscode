@@ -12,4 +12,4 @@ A virtual CRT for old school graphics programming in Visual Studio Code.
 
 ## Documentation
 
-[https://specht.github.io/pixelflow_canvas_vscode/](https://specht.github.io/pixelflow_canvas_vscode/)
+[https://specht.github.io/pixelflow_canvas_vscode](https://specht.github.io/pixelflow_canvas_vscode)
