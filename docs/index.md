@@ -1,35 +1,90 @@
 ---
-title: Home
+title: Pixelflow Canvas
 layout: home
 ---
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+# Pixelflow Canvas
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+A virtual CRT for old school graphics programming in Visual Studio Code.
 
-More specifically, the created site:
+## Getting started
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+1. Install the extension
+2. Launch the CRT with `Ctrl+Shift+P` and `Show Pixelflow Canvas`
+3. Talk to the canvas via TCP – use the protocol or use the provided Ruby library
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+By default, the canvas listens on `http://127.0.0.1:19223`. The default resolution is 320x180 pixels, full RGB color (24-bit).
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+### TCP Commands
 
-To get started with creating a site, simply:
+To send a command, send raw bytes over the wire. The first byte is the command, followed by the arguments.
 
-1. click "[use this template]" to create a GitHub repository
-2. go to Settings > Pages > Build and deployment > Source, and select GitHub Actions
+<style>
+    th { text-align: left; }
+    td { vertical-align: top; }
+</style>
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
+<table>
+<tr>
+<th>Name</th>
+<th>Bytes</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>set_size</code></td>
+<td><code>01 ww ww hh hh</code></td>
+<td>Resizes the canvas to the given width and height</td>
+</tr>
+<tr>
+<td><code>set_color_mode</code></td>
+<td><code>02 mm</code></td>
+<td>Chooses between full color RGB (0) and palette mode (1)</td>
+</tr>
+<tr>
+<td><code>set_palette</code></td>
+<td><code>03 ii rr gg bb</code></td>
+<td>Sets the RGB values for a given color</td>
+</tr>
+<tr>
+<td><code>set_advance</code></td>
+<td><code>04 aa</code></td>
+<td>Chooses whether the cursor should advance right (0) or down (1)</td>
+</tr>
+<tr>
+<td><code>move_to</code></td>
+<td><code>05 xx xx yy yy</code><br>
+<code>05 xx yy yy</code><br>
+<code>05 xx xx yy</code><br>
+<code>05 xx yy</code><br>
+</td>
+<td>Sets the cursor to a specific position (encoding of x and y depends on resolution)</td>
+</tr>
+<tr>
+<td><code>set_pixel</code></td>
+<td><code>06 cc</code><br>
+<code>06 rr gg bb</code>
+</td>
+<td>Sets the pixel at the current position to a specific color (encoding of color depends on color mode)</td>
+</tr>
+<tr>
+<td><code>set_buffer</code></td>
+<td><code>07 cc cc ... cc</code><br>
+<code>07 rr gg bb rr gg bb ... rr gg bb</code>
+</td>
+<td>Blits an entire buffer to the screen (encoding of colors depends on color mode)</td>
+</tr>
+<tr>
+<td><code>set_interpolation_mode</code></td>
+<td><code>08 mm</code>
+</td>
+<td>Chooses between nearest neighbor (0) and bilinear interpolation (1)</td>
+</tr>
+<tr>
+<td><code>fetch_events</code></td>
+<td><code>09</code></td>
+<td>Fetches all events from the event queue</td>
+</tr>
 
-----
+</table>
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
 
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
